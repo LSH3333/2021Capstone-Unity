@@ -31,7 +31,7 @@ public class ToTextFile : MonoBehaviour
 
         // txt파일에 input field에 있는 문자열들 추가 (개행 포함) 
         File.AppendAllText(txtDocumentName, inputFieldChat.text + "\n");
-
+        // input field 비워줌 
         inputFieldChat.text = "";
     }
 
