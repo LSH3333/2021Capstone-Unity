@@ -12,7 +12,7 @@ public class ManageLogo : Manage
 
     void SetFadeout()
     {
-        SetFadeout(1);
+        SetFadeout("MainMenu");
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Management
 {
@@ -34,13 +35,43 @@ namespace Management
         }
 
         // fade out 작동시키고, 다음 씬으로 넘어가도록함 
-        public void SetFadeout(int nextScene)
+        public void SetFadeout(string nextScene)
         {
             _fadeobj.GetComponent<Fade>().setNextScene(nextScene);
             _fadeobj.SetActive(true);
             _fadeobj.GetComponent<Fade>().setFadeOut();            
         }
 
+        // 이미지 좌표, 이미지 크기, 이미지의 자식인 텍스트박스의 크기, 텍스트박스의 내용 
+        public GameObject CreateBox(Vector2 imgPos, Vector2 imgSize, string content)
+        {
+            GameObject resource = (GameObject)Resources.Load("TextBox");
+            GameObject obj = Instantiate(resource, imgPos, Quaternion.identity);
+            obj.transform.SetParent(GameObject.Find("Canvas").transform);
+
+            // imgPos로 set 
+            ((RectTransform)obj.transform).anchoredPosition = imgPos;
+            // imgSize로 set 
+            ((RectTransform)obj.transform).sizeDelta = imgSize;
+            // text box size 변경 
+            Vector2 textboxSize = new Vector2(imgSize.x - 50f, imgSize.y - 50f);            
+            obj.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = textboxSize;
+            // 내용 변경  
+            obj.GetComponentInChildren<Text>().text = content;
+
+            return obj;
+        }
+
+        public GameObject CreateOnCanvas(string arrowName, Vector2 pos)
+        {
+            GameObject resource = (GameObject)Resources.Load(arrowName);
+            GameObject obj = Instantiate(resource, pos, Quaternion.identity);
+            obj.transform.SetParent(GameObject.Find("Canvas").transform);
+
+            ((RectTransform)obj.transform).anchoredPosition = pos;
+
+            return obj;
+        }
 
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Fade : MonoBehaviour
 {
-    private int _nextScene = 0;
+    private string _nextScene;
 
 
     public void endFadeIn()
@@ -23,8 +23,8 @@ public class Fade : MonoBehaviour
         GetComponent<Animator>().SetTrigger("SetFadeout");
     }
 
-    public void setNextScene(int _idx)
+    public void setNextScene(string nextScene)
     {
-        _nextScene = _idx;
+        _nextScene = nextScene;
     }
 }
