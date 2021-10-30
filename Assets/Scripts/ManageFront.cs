@@ -5,9 +5,7 @@ using Management;
 
 public class ManageFront : Manage
 {
-    public int index = 0;
-    GameObject obj;
-    List<GameObject> objs = new List<GameObject>();
+    
 
     protected override void Awake()
     {
@@ -28,6 +26,7 @@ public class ManageFront : Manage
                 // 대화박스 생성 
                 obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
                     "In this screen, you have to fill in the text box with whatever contents you like");
+                // 오브젝트 제거 위해서 objs 리스트에 추가. 다음 버튼 클릭 시 objs에 등록된 모든 객체들 제거됨 
                 objs.Add(obj);
                 break;
 
@@ -55,18 +54,11 @@ public class ManageFront : Manage
                 objs.Add(obj);
 
                 obj = CreateOnCanvas("RightArrow", new Vector2(354f, -200f));
+                objs.Add(obj);
                 break;
         }
         index++;
     }
 
-    // 이전에 Instantiate한 모든 오브젝트들 제거 
-    private void DestroySpawnedObj()
-    {
-        foreach(GameObject x in objs)
-        {
-            Destroy(x);
-        }
-        objs.Clear();
-    }
+
 }

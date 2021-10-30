@@ -12,6 +12,7 @@ public class FileManager : MonoBehaviour
     public void OpenExplorer()
     {
         path = EditorUtility.OpenFilePanel("Overwrite with png", "", "png");
+        Debug.Log("Path: " + path);
         GetImage();
     }
 

@@ -1,14 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Management
 {
     public abstract class Manage : MonoBehaviour
     {
         private GameObject _fadeobj; // Fade 프리팹 인스턴스 개체 참조할 변수 
-        private int _fadeSiblingIndex; // Fade 인스턴스를 최상위 위치로 유지할 목적 
+        private int _fadeSiblingIndex; // Fade 인스턴스를 최상위 위치로 유지할 목적
 
-        // 자식 클래스 override 사용할 목적 
+        // 각 씬들 오브젝트 관리 
+        public int index = 0;
+        protected GameObject obj;
+        protected List<GameObject> objs = new List<GameObject>();
+
+        // 자식 클래스 override 사용할 목적
+        // 모든 씬들은 Fade 해야하므로 virtual
         protected virtual void Awake()
         {
             // 시작하면서 Fade 프리팹 소환 
@@ -53,7 +61,7 @@ namespace Management
             ((RectTransform)obj.transform).anchoredPosition = imgPos;
             // imgSize로 set 
             ((RectTransform)obj.transform).sizeDelta = imgSize;
-            // text box size 변경 
+            // text box size는 이미지보다 조금 작도록 수정함 
             Vector2 textboxSize = new Vector2(imgSize.x - 50f, imgSize.y - 50f);            
             obj.transform.GetChild(0).GetComponent<RectTransform>().sizeDelta = textboxSize;
             // 내용 변경  
@@ -62,6 +70,7 @@ namespace Management
             return obj;
         }
 
+        // 화살표 소환 
         public GameObject CreateOnCanvas(string arrowName, Vector2 pos)
         {
             GameObject resource = (GameObject)Resources.Load(arrowName);
@@ -73,6 +82,17 @@ namespace Management
             return obj;
         }
 
+
+        // 이전에 Instantiate한 모든 오브젝트들 제거 
+        public void DestroySpawnedObj()
+        {
+            // objs에 등록된 모든 객체들 제거 
+            foreach (GameObject x in objs)
+            {
+                Destroy(x);
+            }
+            objs.Clear();
+        }
     }
 }
 
