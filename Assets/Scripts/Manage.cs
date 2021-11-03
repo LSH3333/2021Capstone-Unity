@@ -50,7 +50,7 @@ namespace Management
             _fadeobj.GetComponent<Fade>().setFadeOut();            
         }
 
-        // 이미지 좌표, 이미지 크기, 이미지의 자식인 텍스트박스의 크기, 텍스트박스의 내용 
+        // 이미지 좌표, 이미지 크기, 텍스트박스의 내용 
         public GameObject CreateBox(Vector2 imgPos, Vector2 imgSize, string content)
         {
             GameObject resource = (GameObject)Resources.Load("TextBox");
@@ -93,6 +93,8 @@ namespace Management
             }
             objs.Clear();
         }
+
+
     }
 }
 

@@ -8,7 +8,7 @@ public class ChangeFileName : MonoBehaviour
     string path;
     // 절대경로 path에서 상대경로가 시작되는 지점 ("Assets/" 의 'A' 지점) 
     private int flagIdx;
-
+        
     public void OpenExplorer()
     {
         // open explorer 
@@ -18,7 +18,7 @@ public class ChangeFileName : MonoBehaviour
         // 프로젝트 폴더에서의 상대경로 
         string relativePath = path.Substring(flagIdx);
         // 이름 변경 
-        AssetDatabase.RenameAsset(relativePath, "RESULT");
+        AssetDatabase.RenameAsset(relativePath, "RESULT2");
     }
 
     // OpenFilePanel()로 경로를 갖고오면 절대경로를 리턴 받는다.

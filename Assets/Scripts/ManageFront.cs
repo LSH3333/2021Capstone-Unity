@@ -31,7 +31,7 @@ public class ManageFront : Manage
                 break;
 
             case 1:
-                obj = CreateBox(new Vector2(-217f, 105f), new Vector2(500f, 100f),
+                obj = CreateBox(new Vector2(-180f, 105f), new Vector2(500f, 100f),
                     "now let's start filling in the textbox!");
                 objs.Add(obj);
                 // 화살표 생성 
@@ -40,21 +40,26 @@ public class ManageFront : Manage
                 break;
 
             case 2:
-                obj = CreateBox(new Vector2(-221f, -203f), new Vector2(500f, 100f),
+                obj = CreateBox(new Vector2(-185f, -203f), new Vector2(500f, 100f),
                     "You can also drag down to see more pages");
                 objs.Add(obj);
 
-                obj = CreateOnCanvas("DragDown", new Vector2(57f, -206f));
+                obj = CreateOnCanvas("DragDown", new Vector2(145f, -206f));
                 objs.Add(obj);
                 break;
 
             case 3:
-                obj = CreateBox(new Vector2(45f,-203f), new Vector2(600f, 100f),
+                obj = CreateBox(new Vector2(-16f,-203f), new Vector2(600f, 100f),
                     "Please click this button when you are done with filling boxes!");
                 objs.Add(obj);
 
                 obj = CreateOnCanvas("RightArrow", new Vector2(354f, -200f));
                 objs.Add(obj);
+                break;
+
+            case 4:
+                // move to next scene 
+                SetFadeout("Front1-2");
                 break;
         }
         index++;

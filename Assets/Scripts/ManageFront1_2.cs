@@ -1,19 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using Management;
 
 public class ManageFront1_2 : Manage
-{
+{    
+    private Color flashColor = new Color(1f, 0f, 0f, 0.3f); // 번쩍일 때의 컬러값
+    private float flashSpeed = 1f;
+    public Image flashImage;
+    private bool flashing = false;
+
     protected override void Awake()
     {
         base.Awake();
     }
 
+    private void Start()
+    {
+        
+    }
+
+    private void Update()
+    {
+        
+        Flash();
+    }
+
+    // img 번쩍임 효과 
+    public void Flash()
+    {
+        if(flashing)
+        {
+            flashImage.color = flashColor;          
+        }
+        else
+        {
+            flashImage.color =
+                Color.Lerp(flashImage.color, Color.clear, flashSpeed * Time.deltaTime);
+        }
+        flashing = false;
+    }
+
+    private void WaitForFlash()
+    {
+        flashing = true;
+        Debug.Log(flashing);
+    }
+
+    // objectName에 해당하는 이미지에 Flash effect 
+    private void MakeObjectFlash(string objectName)
+    {
+        // 이전 오브젝트의 Flash 반복 중지
+        CancelInvoke();
+        // 이전 오브젝트의 Color alpha값 0으로 (투명하게)
+        flashImage.color = Color.clear;
+        // 새로운 오브젝트 찾고 
+        flashImage = GameObject.Find(objectName).GetComponent<Image>();
+        // Flash 반복 
+        InvokeRepeating("WaitForFlash", 1f, 1f);
+
+    }
+
     // button에 연결 
     public void Front1_1Func()
-    {
-        Debug.Log("BUTTON CLICKED");
+    {   
         // Instaniate한 모든 오브젝트들 제거 
         if (objs.Count != 0) DestroySpawnedObj();
 
@@ -25,6 +74,38 @@ public class ManageFront1_2 : Manage
                     "Now lets change image of your web");
                 // 오브젝트 제거 위해서 objs 리스트에 추가. 다음 버튼 클릭 시 objs에 등록된 모든 객체들 제거됨 
                 objs.Add(obj);
+                break;
+
+            case 1:
+                MakeObjectFlash("Flash1");
+                break;
+
+            case 2:
+                MakeObjectFlash("Flash2");
+                break;
+
+            case 3:
+                MakeObjectFlash("Flash3");
+                break;
+
+            case 4:
+                MakeObjectFlash("Flash4");
+                break;
+
+            case 5:
+                MakeObjectFlash("Flash5");
+                break;
+
+            case 6:
+                MakeObjectFlash("Flash6");
+                break;
+
+            case 7:
+                MakeObjectFlash("Flash7");
+                break;
+
+            case 8:
+                MakeObjectFlash("Flash8");
                 break;
 
         }
