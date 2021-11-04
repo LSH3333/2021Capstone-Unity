@@ -58,6 +58,8 @@ public class ManageFront : Manage
                 break;
 
             case 4:
+                // txt file 생성
+                gameObject.GetComponent<InputToText>().CreateTextFile();                
                 // move to next scene 
                 SetFadeout("Front1-2");
                 break;

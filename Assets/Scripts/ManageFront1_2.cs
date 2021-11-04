@@ -9,6 +9,10 @@ public class ManageFront1_2 : Manage
     public Image flashImage;
     private bool flashing = false;
 
+    private ChangeFileName _changeFileName;
+    private int number = 1; // Image1, Image2 ... 의 숫자 
+    private GameObject _nextbtn; // next button reference 
+
     protected override void Awake()
     {
         base.Awake();
@@ -16,7 +20,7 @@ public class ManageFront1_2 : Manage
 
     private void Start()
     {
-        
+        _changeFileName = GetComponent<ChangeFileName>();
     }
 
     private void Update()
@@ -43,7 +47,7 @@ public class ManageFront1_2 : Manage
     private void WaitForFlash()
     {
         flashing = true;
-        Debug.Log(flashing);
+        //Debug.Log(flashing);
     }
 
     // objectName에 해당하는 이미지에 Flash effect 
@@ -60,8 +64,60 @@ public class ManageFront1_2 : Manage
 
     }
 
+    // 블링크 중인 이미지 누르면 Image1, Image2 ... 로 이미지명 변경 
+    public void OnClickImage()
+    {
+        // Instaniate한 모든 오브젝트들 제거 
+        if (objs.Count != 0) DestroySpawnedObj();
+
+        _changeFileName.OpenExplorer(number++);
+        switch(index)
+        {
+            case 5:
+                MakeObjectFlash("Flash2");
+                break;
+            case 6:
+                MakeObjectFlash("Flash3");
+                break;
+
+            case 7:
+                MakeObjectFlash("Flash4");
+                break;
+
+            case 8:
+                MakeObjectFlash("Flash5");
+                break;
+
+            case 9:
+                MakeObjectFlash("Flash6");
+                break;
+
+            case 10:
+                MakeObjectFlash("Flash7");
+                break;
+
+            case 11:
+                MakeObjectFlash("Flash8");
+                break;
+
+            case 12:               
+                _nextbtn.SetActive(true);
+                obj = CreateBox(new Vector2(150f, -200f), new Vector2(350f, 100f),
+                    "Now click next button");
+                objs.Add(obj);
+                obj = CreateOnCanvas("RightArrow", new Vector2(354f, -200f));
+                objs.Add(obj);
+                // IMAGES 폴더 web 폴더로 복사 
+                _changeFileName.CopyDirectory();
+
+                // to next scene code ... 
+                break;
+        }
+        index++;
+    }
+
     // button에 연결 
-    public void Front1_1Func()
+    public void Front1_2Func()
     {   
         // Instaniate한 모든 오브젝트들 제거 
         if (objs.Count != 0) DestroySpawnedObj();
@@ -77,36 +133,33 @@ public class ManageFront1_2 : Manage
                 break;
 
             case 1:
-                MakeObjectFlash("Flash1");
+                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                    "Before that, Put your images in the Assets/IMAGES folder");
+                objs.Add(obj);
                 break;
 
             case 2:
-                MakeObjectFlash("Flash2");
+                obj = InstantiateUI("MoveImgVideo", "Canvas", false);
+                objs.Add(obj);
                 break;
 
             case 3:
-                MakeObjectFlash("Flash3");
+                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                    "Now Look at the blinking image");
+                objs.Add(obj);
+                MakeObjectFlash("Flash1");
                 break;
 
             case 4:
-                MakeObjectFlash("Flash4");
+                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                    "Click the image and select your image to replace it");
+                objs.Add(obj);
+                // button 비활성화
+                _nextbtn = GameObject.Find("NextBtn");
+                _nextbtn.SetActive(false);
                 break;
+            // 버튼 비활성 이후에는 이미지 클릭으로 진행 
 
-            case 5:
-                MakeObjectFlash("Flash5");
-                break;
-
-            case 6:
-                MakeObjectFlash("Flash6");
-                break;
-
-            case 7:
-                MakeObjectFlash("Flash7");
-                break;
-
-            case 8:
-                MakeObjectFlash("Flash8");
-                break;
 
         }
         index++;
