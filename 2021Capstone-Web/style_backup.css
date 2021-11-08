@@ -9,9 +9,8 @@
   min-height: 100vh;
   width: 100%;
   /* linear-gradient: 이미지에 명암을 줌 (default는 to bottom) */
-  /* Unity에서 생성된 COPIED_IMAGES 폴더의 이미지들로 대체  */
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-    url(COPIED_IMAGES/Image1.jpg);
+    url(images/dog-banner.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
@@ -353,9 +352,8 @@ h3 {
 .cta {
   margin: 100px auto;
   width: 80%;
-  /* Unity에서 생성된 COPIED_IMAGES 폴더의 이미지들로 대체  */
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(COPIED_IMAGES/Image8.jpg);
+    url(images/dog-contact.jpg);
   background-position: center;
   background-size: cover;
   border-radius: 10px;

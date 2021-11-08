@@ -59,7 +59,10 @@ public class ManageFront : Manage
 
             case 4:
                 // txt file 생성
-                gameObject.GetComponent<InputToText>().CreateTextFile();                
+                gameObject.GetComponent<InputToText>().CreateTextFile();
+
+                GameObject.Find("ManageScene").GetComponent<CreateNewHtml>().CreateEditedHtmlFile();
+
                 // move to next scene 
                 SetFadeout("Front1-2");
                 break;
