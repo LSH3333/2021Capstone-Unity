@@ -38,7 +38,7 @@ public class CreateNewHtml : MonoBehaviour
 
         // 만들어질 html file path
         //writeFilePath = Application.streamingAssetsPath + "/Read_Text/" + "index2" + ".html";
-        writeFilePath = FindWebPath() + "/index2" + ".html";
+        writeFilePath = FindWebPath() + "/index" + ".html";
 
         List<string> fileLines = File.ReadAllLines(readFromFilePath).ToList();
         readedFromCreatedTextFile = File.ReadAllLines(createdTextPath).ToList();
