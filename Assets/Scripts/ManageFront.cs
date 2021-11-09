@@ -19,7 +19,7 @@ public class ManageFront : Manage
     {
         // Instaniate한 모든 오브젝트들 제거 
         if (objs.Count != 0) DestroySpawnedObj();
-        
+        Debug.Log(index);
         switch (index)
         {
             case 0:
@@ -60,7 +60,7 @@ public class ManageFront : Manage
             case 4:
                 // txt file 생성
                 gameObject.GetComponent<InputToText>().CreateTextFile();
-
+                // html file 생성 
                 GameObject.Find("ManageScene").GetComponent<CreateNewHtml>().CreateEditedHtmlFile();
 
                 // move to next scene 

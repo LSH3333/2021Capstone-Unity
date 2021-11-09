@@ -110,7 +110,8 @@ public class ManageFront1_2 : Manage
                 // IMAGES 폴더 web 폴더로 복사 
                 _changeFileName.CopyDirectory();
 
-                // to next scene code ... 
+                // to next scene code ...
+                SetFadeout("fin");
                 break;
         }
         index++;

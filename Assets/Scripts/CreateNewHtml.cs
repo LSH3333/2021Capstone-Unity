@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Linq;
+using UnityEditor;
 
 // readFromFilePath의 html 파일 읽어와서
 // 라인별로 "FixFlag"가 존재하면 다음 라인에 createdTextPath의 유저가 지정한 문자열들을 차례대로 삽입하고
@@ -39,6 +40,8 @@ public class CreateNewHtml : MonoBehaviour
         // 만들어질 html file path
         //writeFilePath = Application.streamingAssetsPath + "/Read_Text/" + "index2" + ".html";
         writeFilePath = FindWebPath() + "/index" + ".html";
+        // 기존에 만들어진 html 파일이 있다면 제거해둠 
+        FileUtil.DeleteFileOrDirectory(writeFilePath);
 
         List<string> fileLines = File.ReadAllLines(readFromFilePath).ToList();
         readedFromCreatedTextFile = File.ReadAllLines(createdTextPath).ToList();
@@ -48,13 +51,14 @@ public class CreateNewHtml : MonoBehaviour
         {
             CheckLine(line);
             add += '\n' + line;
+            Debug.Log(add.Length);
         }
 
         // 유니티 텍스트박스 상에서 보이도록 
         //recallTextObject.GetComponent<Text>().text = add;
 
         // writeFilePath의 html 파일에 내용 복사         
-        File.AppendAllText(writeFilePath, add);
+        File.AppendAllText(writeFilePath, add);        
     }
 
     private void CheckLine(string line)
@@ -62,6 +66,7 @@ public class CreateNewHtml : MonoBehaviour
         // 해당 라인에 "FixFlag" 존재하면 다음 행에 문자열 추가 
         if (line.Contains("FixFlag"))
         {
+            if (createdTextFileLineIdx >= readedFromCreatedTextFile.Count) return;           
             // front1 scene에서 생성한 텍스트 파일을 라인별로 읽어서 string add에 추가 
             add += '\n' + readedFromCreatedTextFile[createdTextFileLineIdx++];
         }
