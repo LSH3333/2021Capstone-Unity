@@ -109,8 +109,9 @@ public class ManageFront1_2 : Manage
                 objs.Add(obj);
                 // IMAGES 폴더 web 폴더로 복사 
                 _changeFileName.CopyDirectory();
+                break;
 
-                // to next scene code ...
+            case 13:
                 SetFadeout("fin");
                 break;
         }
@@ -127,14 +128,14 @@ public class ManageFront1_2 : Manage
         {
             case 0:
                 // 대화박스 생성 
-                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
                     "Now lets change image of your web");
                 // 오브젝트 제거 위해서 objs 리스트에 추가. 다음 버튼 클릭 시 objs에 등록된 모든 객체들 제거됨 
                 objs.Add(obj);
                 break;
 
             case 1:
-                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
                     "Before that, Put your images in the Assets/IMAGES folder");
                 objs.Add(obj);
                 break;
@@ -145,21 +146,24 @@ public class ManageFront1_2 : Manage
                 break;
 
             case 3:
-                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(700f, 200f),
                     "Now Look at the blinking image");
                 objs.Add(obj);
                 MakeObjectFlash("Flash1");
                 break;
 
             case 4:
-                obj = CreateBox(Vector2.zero, new Vector2(500f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
                     "Click the image and select your image to replace it");
                 objs.Add(obj);
                 // button 비활성화
-                _nextbtn = GameObject.Find("NextBtn");
+                _nextbtn = GameObject.Find("Button Green Outline");
                 _nextbtn.SetActive(false);
                 break;
+
             // 버튼 비활성 이후에는 이미지 클릭으로 진행 
+            default:
+                break;
 
 
         }

@@ -53,7 +53,7 @@ namespace Management
         // 이미지 좌표, 이미지 크기, 텍스트박스의 내용 
         public GameObject CreateBox(Vector2 imgPos, Vector2 imgSize, string content)
         {
-            GameObject resource = (GameObject)Resources.Load("TextBox");
+            GameObject resource = (GameObject)Resources.Load("TextBox_g");
             GameObject obj = Instantiate(resource, imgPos, Quaternion.identity);
             obj.transform.SetParent(GameObject.Find("Canvas").transform);
 
