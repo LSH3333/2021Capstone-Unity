@@ -51,7 +51,7 @@ public class CreateNewHtml : MonoBehaviour
         {
             CheckLine(line);
             add += '\n' + line;
-            Debug.Log(add.Length);
+            
         }
 
         // 유니티 텍스트박스 상에서 보이도록 
