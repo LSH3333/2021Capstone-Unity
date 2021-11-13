@@ -71,5 +71,5 @@ public class ChangeFileName : MonoBehaviour
         // /Assets 의 IMAGES 폴더를 ../2021Capstone-Web 폴더로 복사
         FileUtil.CopyFileOrDirectory(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
     }
-
+    // git push testing ... 
 }
