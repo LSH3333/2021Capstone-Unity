@@ -18,13 +18,14 @@ public class ChangeFileName : MonoBehaviour
 
         // 프로젝트 폴더에서의 상대경로 
         string relativePath = path.Substring(flagIdx);
+
         // 이름 변경
         string changeTo = "Image" + Convert.ToString(number);
         AssetDatabase.RenameAsset(relativePath, changeTo);
     }
 
     // OpenFilePanel()로 경로를 갖고오면 절대경로를 리턴 받는다.
-    // RenameAsset()으로 파일명을 변경하려면 프로젝트의 상대경로가 필요하기 때문에
+    // RenameAsset()으로 파일명을 변경하려면 현재 프로젝트 기준 Explorer로 선택한 이미지의 상대경로가 필요하기 때문에
     // 절대경로를 -> 상대경로로 바꿔주는 작업이 필요하다
     // 모든 경로에는 "Assets/"이 포함되기 때문에 경로명에서 "Assets"을 찾는다 
     private void MakePathRelative()

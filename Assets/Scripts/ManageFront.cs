@@ -53,7 +53,7 @@ public class ManageFront : Manage
                     "Please click this button when you are done with filling boxes!");
                 objs.Add(obj);
 
-                obj = CreateOnCanvas("RightArrow", new Vector2(290f, -200f));
+                obj = CreateOnCanvas("RightArrow", new Vector2(300f, -215f));
                 objs.Add(obj);
                 break;
 

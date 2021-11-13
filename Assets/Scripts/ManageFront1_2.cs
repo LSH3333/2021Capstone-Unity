@@ -102,18 +102,17 @@ public class ManageFront1_2 : Manage
 
             case 12:               
                 _nextbtn.SetActive(true);
-                obj = CreateBox(new Vector2(150f, -200f), new Vector2(350f, 100f),
+                CancelInvoke();
+                obj = CreateBox(new Vector2(145f, -215f), new Vector2(500f, 100f),
                     "Now click next button");
                 objs.Add(obj);
-                obj = CreateOnCanvas("RightArrow", new Vector2(354f, -200f));
+                obj = CreateOnCanvas("RightArrow", new Vector2(300f, -213f));
                 objs.Add(obj);
                 // IMAGES 폴더 web 폴더로 복사 
                 _changeFileName.CopyDirectory();
                 break;
 
-            case 13:
-                SetFadeout("fin");
-                break;
+            
         }
         index++;
     }
@@ -159,6 +158,11 @@ public class ManageFront1_2 : Manage
                 // button 비활성화
                 _nextbtn = GameObject.Find("Button Green Outline");
                 _nextbtn.SetActive(false);
+                break;
+
+            case 13:
+                Debug.Log("CASE 13");
+                SetFadeout("fin");
                 break;
 
             // 버튼 비활성 이후에는 이미지 클릭으로 진행 
