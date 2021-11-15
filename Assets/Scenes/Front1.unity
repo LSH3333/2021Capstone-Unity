@@ -9986,7 +9986,7 @@ PrefabInstance:
     - target: {fileID: 585171527804310082, guid: ebd2bef4d6c974b9190cd5c15fc56b0d,
         type: 3}
       propertyPath: m_Name
-      value: Button Green Outline
+      value: NextBtn
       objectReference: {fileID: 0}
     - target: {fileID: 585171527804310083, guid: ebd2bef4d6c974b9190cd5c15fc56b0d,
         type: 3}

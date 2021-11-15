@@ -11,5 +11,4 @@ public class ManageMainMenu : Manage
         base.Awake();
     }
 
-
 }

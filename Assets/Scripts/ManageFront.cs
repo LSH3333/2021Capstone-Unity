@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Management;
+using UnityEngine.UI;
 
 public class ManageFront : Manage
 {
@@ -19,7 +20,7 @@ public class ManageFront : Manage
     {
         // Instaniate한 모든 오브젝트들 제거 
         if (objs.Count != 0) DestroySpawnedObj();
-        Debug.Log(index);
+        //Debug.Log(index);
         switch (index)
         {
             case 0:
@@ -58,17 +59,31 @@ public class ManageFront : Manage
                 break;
 
             case 4:
-                // txt file 생성
-                gameObject.GetComponent<InputToText>().CreateTextFile();
-                // html file 생성 
-                GameObject.Find("ManageScene").GetComponent<CreateNewHtml>().CreateEditedHtmlFile();
 
-                // move to next scene 
-                SetFadeout("Front1-2");
                 break;
+
+            case 5:                
+                obj = CreateOnCanvas("AreYouSureBox", Vector2.zero);
+                GameObject.Find("NextBtn").GetComponent<Button>().interactable = false;
+                index--;
+                break;
+
+            case 6:
+                break;
+
         }
         index++;
     }
 
+    public void DoBeforeMovingToNextScene()
+    {
+        // txt file 생성
+        gameObject.GetComponent<InputToText>().CreateTextFile();
+        // html file 생성 
+        GameObject.Find("ManageScene").GetComponent<CreateNewHtml>().CreateEditedHtmlFile();
+
+        // move to next scene 
+        SetFadeout("Front1-2");
+    }
 
 }

@@ -1141,7 +1141,7 @@ GameObject:
   - component: {fileID: 157068023}
   - component: {fileID: 157068028}
   m_Layer: 5
-  m_Name: Button Green Outline
+  m_Name: NextBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

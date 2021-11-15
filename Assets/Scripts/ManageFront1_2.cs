@@ -156,12 +156,11 @@ public class ManageFront1_2 : Manage
                     "Click the image and select your image to replace it");
                 objs.Add(obj);
                 // button 비활성화
-                _nextbtn = GameObject.Find("Button Green Outline");
+                _nextbtn = GameObject.Find("NextBtn");
                 _nextbtn.SetActive(false);
                 break;
 
             case 13:
-                Debug.Log("CASE 13");
                 SetFadeout("fin");
                 break;
 

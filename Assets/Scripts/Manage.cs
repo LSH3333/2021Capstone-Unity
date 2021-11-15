@@ -70,10 +70,10 @@ namespace Management
             return obj;
         }
 
-        // 화살표 소환 
-        public GameObject CreateOnCanvas(string arrowName, Vector2 pos)
+        // 오브젝트 캔버스에 소환 
+        public GameObject CreateOnCanvas(string objName, Vector2 pos)
         {
-            GameObject resource = (GameObject)Resources.Load(arrowName);
+            GameObject resource = (GameObject)Resources.Load(objName);
             GameObject obj = Instantiate(resource, pos, Quaternion.identity);
             obj.transform.SetParent(GameObject.Find("Canvas").transform);
 
@@ -93,8 +93,7 @@ namespace Management
             }
             objs.Clear();
         }
-
-        ///
+        
     }
 }
 
