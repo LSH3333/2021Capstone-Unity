@@ -64,11 +64,9 @@ public class ManageFront : Manage
 
             case 5:                
                 obj = CreateOnCanvas("AreYouSureBox", Vector2.zero);
+                // "AreYouSureBox" 팝업시 NextBtn은 클릭 못하도록 
                 GameObject.Find("NextBtn").GetComponent<Button>().interactable = false;
                 index--;
-                break;
-
-            case 6:
                 break;
 
         }

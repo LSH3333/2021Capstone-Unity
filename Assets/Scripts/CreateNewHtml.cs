@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System.IO;
 using System.Linq;
 using UnityEditor;
+//using UnityEngine.Windows;
+
 
 // readFromFilePath의 html 파일 읽어와서
 // 라인별로 "FixFlag"가 존재하면 다음 라인에 createdTextPath의 유저가 지정한 문자열들을 차례대로 삽입하고
@@ -42,6 +44,7 @@ public class CreateNewHtml : MonoBehaviour
         writeFilePath = FindWebPath() + "/index" + ".html";
         // 기존에 만들어진 html 파일이 있다면 제거해둠 
         FileUtil.DeleteFileOrDirectory(writeFilePath);
+        //File.Delete(writeFilePath);
 
         List<string> fileLines = File.ReadAllLines(readFromFilePath).ToList();
         readedFromCreatedTextFile = File.ReadAllLines(createdTextPath).ToList();

@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Windows;
 
 public class ChangeFileName : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class ChangeFileName : MonoBehaviour
 
         // 이전에 만들어진 COPIED_IMAGES 폴더 삭제 
         FileUtil.DeleteFileOrDirectory(webPath + "/COPIED_IMAGES");
+        
         // /Assets 의 IMAGES 폴더를 ../2021Capstone-Web 폴더로 복사
         FileUtil.CopyFileOrDirectory(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
     }    
