@@ -1,28 +1,39 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
 using System;
-using UnityEngine.Windows;
+//using UnityEngine.Windows;
+//using UnityEditor;
+using System.IO;
+using SFB;
 
 public class ChangeFileName : MonoBehaviour
 {
     // 절대경로 
-    string path;
+    string[] path;
     // 절대경로 path에서 상대경로가 시작되는 지점 ("Assets/" 의 'A' 지점) 
     private int flagIdx;
         
     public void OpenExplorer(int number)
     {
         // open explorer 
-        path = EditorUtility.OpenFilePanel("Overwrite with png", Application.dataPath + "/IMAGES", "png,jpg,jpeg");        
+        //path = EditorUtility.OpenFilePanel("Overwrite with png", Application.dataPath + "/IMAGES", "png,jpg,jpeg");
+        var extensions = new[]
+        {
+            new ExtensionFilter("Image Files", "png", "jpg", "jpeg")
+        };
+        path = StandaloneFileBrowser.OpenFilePanel("Open Image", "", extensions, false);
+        Debug.Log("path!! : " + path[0]);
         MakePathRelative();                
 
         // 프로젝트 폴더에서의 상대경로 
-        string relativePath = path.Substring(flagIdx);
+        string relativePath = path[0].Substring(flagIdx);
+        Debug.Log("RelativePath: " + relativePath);
 
         // 이름 변경
         string changeTo = "Image" + Convert.ToString(number);
-        AssetDatabase.RenameAsset(relativePath, changeTo);
+        //AssetDatabase.RenameAsset(relativePath, changeTo);
+        File.Move(path[0], changeTo);
+        
     }
 
     // OpenFilePanel()로 경로를 갖고오면 절대경로를 리턴 받는다.
@@ -33,9 +44,9 @@ public class ChangeFileName : MonoBehaviour
     {
         string str = "";
 
-        for(int i = 0; i < path.Length; i++)
+        for(int i = 0; i < path[0].Length; i++)
         {
-            if (path[i] == '/')
+            if (path[0][i] == '/')
             {
                 //Debug.Log(str);
                 if(str == "Assets")
@@ -49,7 +60,7 @@ public class ChangeFileName : MonoBehaviour
                 continue;
             }
 
-            str += path[i];            
+            str += path[0][i];            
         }
     }
 
@@ -69,9 +80,50 @@ public class ChangeFileName : MonoBehaviour
         //FileUtil.CopyFileOrDirectory("Assets/TempFolder", "/Users/lsh/Desktop/TempFolder");
 
         // 이전에 만들어진 COPIED_IMAGES 폴더 삭제 
-        FileUtil.DeleteFileOrDirectory(webPath + "/COPIED_IMAGES");
+        //FileUtil.DeleteFileOrDirectory(webPath + "/COPIED_IMAGES");
+        //File.Delete(webPath + "/COPIED_IMAGES");
+        Directory.Delete(webPath + "/COPIED_IMAGES");
         
         // /Assets 의 IMAGES 폴더를 ../2021Capstone-Web 폴더로 복사
-        FileUtil.CopyFileOrDirectory(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
-    }    
+        //FileUtil.CopyFileOrDirectory(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
+        //File.Copy(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
+        DirectoryCopy(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES", false);
+    }
+
+
+    private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
+    {
+        // Get the subdirectories for the specified directory.
+        DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+
+        if (!dir.Exists)
+        {
+            throw new DirectoryNotFoundException(
+                "Source directory does not exist or could not be found: "
+                + sourceDirName);
+        }
+
+        DirectoryInfo[] dirs = dir.GetDirectories();
+
+        // If the destination directory doesn't exist, create it.       
+        Directory.CreateDirectory(destDirName);
+
+        // Get the files in the directory and copy them to the new location.
+        FileInfo[] files = dir.GetFiles();
+        foreach (FileInfo file in files)
+        {
+            string tempPath = Path.Combine(destDirName, file.Name);
+            file.CopyTo(tempPath, false);
+        }
+
+        // If copying subdirectories, copy them and their contents to new location.
+        if (copySubDirs)
+        {
+            foreach (DirectoryInfo subdir in dirs)
+            {
+                string tempPath = Path.Combine(destDirName, subdir.Name);
+                DirectoryCopy(subdir.FullName, tempPath, copySubDirs);
+            }
+        }
+    }
 }

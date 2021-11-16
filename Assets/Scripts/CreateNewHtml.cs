@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Linq;
-using UnityEditor;
+//using UnityEditor;
 //using UnityEngine.Windows;
 
 
@@ -43,8 +43,7 @@ public class CreateNewHtml : MonoBehaviour
         //writeFilePath = Application.streamingAssetsPath + "/Read_Text/" + "index2" + ".html";
         writeFilePath = FindWebPath() + "/index" + ".html";
         // 기존에 만들어진 html 파일이 있다면 제거해둠 
-        FileUtil.DeleteFileOrDirectory(writeFilePath);
-        //File.Delete(writeFilePath);
+        File.Delete(writeFilePath);
 
         List<string> fileLines = File.ReadAllLines(readFromFilePath).ToList();
         readedFromCreatedTextFile = File.ReadAllLines(createdTextPath).ToList();
