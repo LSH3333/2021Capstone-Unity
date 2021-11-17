@@ -98,6 +98,8 @@ public class ChangeFileName : MonoBehaviour
         // IMAGES folder path 
         string imgPath;
         imgPath = Application.dataPath;
+        imgPath = Directory.GetCurrentDirectory() + "/Assets/IMAGES";
+
         // web folder path 
         string webPath;
         webPath = Application.dataPath;
@@ -105,17 +107,20 @@ public class ChangeFileName : MonoBehaviour
         webPath = webPath.Substring(0, webPath.Length-6);
         webPath += "2021Capstone-Web";
 
+        webPath = Directory.GetCurrentDirectory() + "/2021Capstone-Web";
+
         //FileUtil.CopyFileOrDirectory("Assets/TempFolder", "/Users/lsh/Desktop/TempFolder");
 
         // 이전에 만들어진 COPIED_IMAGES 폴더 삭제 
         //FileUtil.DeleteFileOrDirectory(webPath + "/COPIED_IMAGES");
         //File.Delete(webPath + "/COPIED_IMAGES");
-        Directory.Delete(webPath + "/COPIED_IMAGES", true);
+        if(Directory.Exists(webPath + "/COPIED_IMAGES"))
+            Directory.Delete(webPath + "/COPIED_IMAGES", true);
         
         // /Assets 의 IMAGES 폴더를 ../2021Capstone-Web 폴더로 복사
         //FileUtil.CopyFileOrDirectory(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
         //File.Copy(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
-        DirectoryCopy(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES", false);
+        DirectoryCopy(imgPath, webPath + "/COPIED_IMAGES", false);
     }
 
     // 폴더 복사 

@@ -79,10 +79,15 @@ public class CreateNewHtml : MonoBehaviour
     {
         // web folder path 
         string webPath;
-        webPath = Application.dataPath;
+        webPath = Directory.GetCurrentDirectory() + "/2021Capstone-Web";
+
+        Debug.LogError("getcurDir: " + System.IO.Directory.GetCurrentDirectory());
+        Debug.LogError("webpath: " + webPath);
+        
         // path/Assets 에서 Assets를 뺀 문자열 
-        webPath = webPath.Substring(0, webPath.Length - 6);
-        webPath += "2021Capstone-Web";
+        //webPath = webPath.Substring(0, webPath.Length - 6);
+        //webPath += "2021Capstone-Web";
+
 
         return webPath;
     }
