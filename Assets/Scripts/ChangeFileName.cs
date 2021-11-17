@@ -21,6 +21,7 @@ public class ChangeFileName : MonoBehaviour
         {
             new ExtensionFilter("Image Files", "png", "jpg", "jpeg")
         };
+        // path[0] : explorer에서 오픈한 이미지의 경로 
         path = StandaloneFileBrowser.OpenFilePanel("Open Image", "", extensions, false);
         Debug.Log("path!! : " + path[0]);
         MakePathRelative();                
@@ -30,10 +31,37 @@ public class ChangeFileName : MonoBehaviour
         Debug.Log("RelativePath: " + relativePath);
 
         // 이름 변경
-        string changeTo = "Image" + Convert.ToString(number);
+        string changeTo = ReturnPathExceptFileName(relativePath) + "Image" + Convert.ToString(number) + ReturnFormat(path[0]);
         //AssetDatabase.RenameAsset(relativePath, changeTo);
-        File.Move(path[0], changeTo);
-        
+
+        Debug.Log("chageTo: " + changeTo);
+        if (!File.Exists(changeTo))
+            File.Move(relativePath, changeTo);
+
+
+
+    }
+
+    public string ReturnPathExceptFileName(string path)
+    {
+        int idx = 0;
+        for(int i = path.Length-1; i >= 0; i--)
+        {
+            if (path[i] == '/') break;
+            idx++;
+        }
+        return path.Substring(0, path.Length - idx);
+    }
+
+    public string ReturnFormat(string path)
+    {
+        int idx = 0;
+        for(int i = path.Length-1; i >= 0; i--)
+        {
+            if (path[i] == '.') break;
+            idx++;
+        }
+        return path.Substring(path.Length - idx - 1);
     }
 
     // OpenFilePanel()로 경로를 갖고오면 절대경로를 리턴 받는다.
@@ -82,7 +110,7 @@ public class ChangeFileName : MonoBehaviour
         // 이전에 만들어진 COPIED_IMAGES 폴더 삭제 
         //FileUtil.DeleteFileOrDirectory(webPath + "/COPIED_IMAGES");
         //File.Delete(webPath + "/COPIED_IMAGES");
-        Directory.Delete(webPath + "/COPIED_IMAGES");
+        Directory.Delete(webPath + "/COPIED_IMAGES", true);
         
         // /Assets 의 IMAGES 폴더를 ../2021Capstone-Web 폴더로 복사
         //FileUtil.CopyFileOrDirectory(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES");
@@ -90,7 +118,7 @@ public class ChangeFileName : MonoBehaviour
         DirectoryCopy(imgPath + "/IMAGES", webPath + "/COPIED_IMAGES", false);
     }
 
-
+    // 폴더 복사 
     private static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
     {
         // Get the subdirectories for the specified directory.
