@@ -103,10 +103,10 @@ public class ManageFront1_2 : Manage
             case 12:               
                 _nextbtn.SetActive(true);
                 CancelInvoke();
-                obj = CreateBox(new Vector2(145f, -215f), new Vector2(500f, 100f),
+                obj = CreateBox(new Vector2(250f, -300f), new Vector2(700f, 150f),
                     "Now click next button");
                 objs.Add(obj);
-                obj = CreateOnCanvas("RightArrow", new Vector2(300f, -213f));
+                obj = CreateOnCanvas("RightArrow", new Vector2(450f, -300f));
                 objs.Add(obj);
                 // IMAGES 폴더 web 폴더로 복사 
                 _changeFileName.CopyDirectory();
@@ -127,14 +127,14 @@ public class ManageFront1_2 : Manage
         {
             case 0:
                 // 대화박스 생성 
-                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(1300f, 300f),
                     "Now lets change image of your web");
                 // 오브젝트 제거 위해서 objs 리스트에 추가. 다음 버튼 클릭 시 objs에 등록된 모든 객체들 제거됨 
                 objs.Add(obj);
                 break;
 
             case 1:
-                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(1300f, 300f),
                     "Before that, Put your images in the Assets/IMAGES folder");
                 objs.Add(obj);
                 break;
@@ -145,14 +145,14 @@ public class ManageFront1_2 : Manage
                 break;
 
             case 3:
-                obj = CreateBox(Vector2.zero, new Vector2(700f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(1000f, 200f),
                     "Now Look at the blinking image");
                 objs.Add(obj);
                 MakeObjectFlash("Flash1");
                 break;
 
             case 4:
-                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(1400f, 200f),
                     "Click the image and select your image to replace it");
                 objs.Add(obj);
                 // button 비활성화

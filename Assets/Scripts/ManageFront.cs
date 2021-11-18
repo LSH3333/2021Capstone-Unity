@@ -25,36 +25,36 @@ public class ManageFront : Manage
         {
             case 0:
                 // 대화박스 생성 
-                obj = CreateBox(Vector2.zero, new Vector2(800f, 200f),
+                obj = CreateBox(Vector2.zero, new Vector2(1300f, 300f),
                     "In this screen, you have to fill in the text box with whatever contents you like");
                 // 오브젝트 제거 위해서 objs 리스트에 추가. 다음 버튼 클릭 시 objs에 등록된 모든 객체들 제거됨 
                 objs.Add(obj);
                 break;
 
             case 1:
-                obj = CreateBox(new Vector2(-250f, 130f), new Vector2(700f, 100f),
+                obj = CreateBox(new Vector2(-304f, 189f), new Vector2(1200f, 200f),
                     "Now let's start filling in the textbox!");
                 objs.Add(obj);
                 // 화살표 생성 
-                obj = CreateOnCanvas("UpArrow" ,new Vector2(-335f, 182f));
+                obj = CreateOnCanvas("UpArrow" ,new Vector2(-466f, 272f));
                 objs.Add(obj);
                 break;
 
             case 2:
-                obj = CreateBox(new Vector2(-180f, -200f), new Vector2(1000f, 100f),
+                obj = CreateBox(new Vector2(-244f, -285f), new Vector2(1300f, 200f),
                     "You can also drag down to see more pages");
                 objs.Add(obj);
 
-                obj = CreateOnCanvas("DragDown", new Vector2(127f, -211f));
+                obj = CreateOnCanvas("DragDown", new Vector2(127f, -285f));
                 objs.Add(obj);
                 break;
 
             case 3:
-                obj = CreateBox(new Vector2(45f,-203f), new Vector2(800f, 200f),
+                obj = CreateBox(new Vector2(130f,-300f), new Vector2(1200f, 200f),
                     "Please click this button when you are done with filling boxes!");
                 objs.Add(obj);
 
-                obj = CreateOnCanvas("RightArrow", new Vector2(300f, -215f));
+                obj = CreateOnCanvas("RightArrow", new Vector2(460f, -300f));
                 objs.Add(obj);
                 break;
 
