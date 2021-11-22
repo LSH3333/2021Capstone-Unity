@@ -45,15 +45,15 @@ public class CreateNewHtml : MonoBehaviour
         // 기존에 만들어진 html 파일이 있다면 제거해둠 
         File.Delete(writeFilePath);
 
-        List<string> fileLines = File.ReadAllLines(readFromFilePath).ToList();
+        List<string> fileLines = File.ReadAllLines(readFromFilePath).ToList();       
         readedFromCreatedTextFile = File.ReadAllLines(createdTextPath).ToList();
 
         // string add에 html 파일의 문자열들 불러와서 저장 (개행 포함)        
         foreach (string line in fileLines)
-        {
+        {            
+            add += line + '\n';
             CheckLine(line);
-            add += '\n' + line;
-            
+
         }
 
         // 유니티 텍스트박스 상에서 보이도록 
@@ -67,10 +67,10 @@ public class CreateNewHtml : MonoBehaviour
     {
         // 해당 라인에 "FixFlag" 존재하면 다음 행에 문자열 추가 
         if (line.Contains("FixFlag"))
-        {
+        {            
             if (createdTextFileLineIdx >= readedFromCreatedTextFile.Count) return;           
             // front1 scene에서 생성한 텍스트 파일을 라인별로 읽어서 string add에 추가 
-            add += '\n' + readedFromCreatedTextFile[createdTextFileLineIdx++];
+            add += readedFromCreatedTextFile[createdTextFileLineIdx++] + '\n';
         }
 
     }
