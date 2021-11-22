@@ -1,6 +1,6 @@
-one
-main
-three
+_
+_
+_
 _
 _
 _
