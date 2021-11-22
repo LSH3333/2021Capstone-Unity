@@ -5,6 +5,7 @@ using System;
 //using UnityEditor;
 using System.IO;
 using SFB;
+using System.Collections;
 
 public class ChangeFileName : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class ChangeFileName : MonoBehaviour
     // 절대경로 path에서 상대경로가 시작되는 지점 ("Assets/" 의 'A' 지점) 
     private int flagIdx;
         
-    public void OpenExplorer(int number)
+    public bool OpenExplorer(int number)
     {
         // open explorer 
         //path = EditorUtility.OpenFilePanel("Overwrite with png", Application.dataPath + "/IMAGES", "png,jpg,jpeg");
@@ -24,6 +25,12 @@ public class ChangeFileName : MonoBehaviour
         // path[0] : explorer에서 오픈한 이미지의 경로 
         path = StandaloneFileBrowser.OpenFilePanel("Open Image", "", extensions, false);
         Debug.Log("path!! : " + path[0]);
+        // explorer창 닫았을시 return false 
+        if (path[0] == "") return false;
+
+        string objName = "transparent" + Convert.ToString(number);
+        StartCoroutine(RenderImg(path[0], objName));
+        
         MakePathRelative();                
 
         // 프로젝트 폴더에서의 상대경로 
@@ -38,8 +45,17 @@ public class ChangeFileName : MonoBehaviour
         if (!File.Exists(changeTo))
             File.Move(relativePath, changeTo);
 
-
-
+        return true;
+    }
+    
+    // 유저가 선택한 이미지 캔버스에 렌더링 
+    IEnumerator RenderImg(string path, string objName)
+    {
+        WWW www = new WWW(path);
+        while (!www.isDone)
+            yield return null;
+        GameObject image = GameObject.Find(objName);
+        image.GetComponent<RawImage>().texture = www.texture;
     }
 
     public string ReturnPathExceptFileName(string path)

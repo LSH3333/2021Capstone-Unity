@@ -70,7 +70,13 @@ public class ManageFront1_2 : Manage
         // Instaniate한 모든 오브젝트들 제거 
         if (objs.Count != 0) DestroySpawnedObj();
 
-        _changeFileName.OpenExplorer(number++);
+        // explorer를 닫았을시, 다시 해당 이미지가 블링크하도록 
+        if(_changeFileName.OpenExplorer(number++) == false)
+        {
+            number--;
+            return;
+        }
+        //_changeFileName.OpenExplorer(number++);
         switch(index)
         {
             case 5:
