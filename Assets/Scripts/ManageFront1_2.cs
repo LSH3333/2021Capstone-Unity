@@ -24,9 +24,15 @@ public class ManageFront1_2 : Manage
     }
 
     private void Update()
-    {
-        
+    {        
         Flash();
+    }
+
+    private void ScrollToTop()
+    {
+        // scroll 맨위로 이동 
+        ((RectTransform)GameObject.Find("content").transform).offsetMin = new Vector2(0f, -3572f);
+        ((RectTransform)GameObject.Find("content").transform).offsetMax = new Vector2(0f, 0f);
     }
 
     // img 번쩍임 효과 
@@ -167,6 +173,26 @@ public class ManageFront1_2 : Manage
                 break;
 
             case 13:
+                ScrollToTop();
+                break;
+
+            case 14:
+                obj = CreateBox(Vector2.zero, new Vector2(1400f, 200f),
+                    "You have created 'HOME' page of your Web"); objs.Add(obj);
+                obj = CreateOnCanvas("UpArrow", new Vector2(260f, 295f)); objs.Add(obj);
+                break;
+
+            case 15:
+                obj = CreateBox(Vector2.zero, new Vector2(1400f, 200f),
+                    "Now click other pages to create other pages"); objs.Add(obj);
+                obj = CreateOnCanvas("UpArrow", new Vector2(340f, 295f)); objs.Add(obj);
+                obj = CreateOnCanvas("UpArrow", new Vector2(431.5f, 291f)); objs.Add(obj);
+                obj = CreateOnCanvas("UpArrow", new Vector2(515f, 291f)); objs.Add(obj);                
+                break;
+
+
+            case 16:
+                // to next scene ... 
                 SetFadeout("fin");
                 break;
 
