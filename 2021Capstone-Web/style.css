@@ -403,12 +403,12 @@ h3 {
 }
 
 /* ------------------------------------- about.html -------------------------------------- */
-.sub-header {
+.sub-header-about {
   height: 50vh;
   width: 100%;
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-    url(COPIED_IMAGES/SUBHEADER.jpg), url(COPIED_IMAGES/SUBHEADER.png),
-    url(COPIED_IMAGES/SUBHEADER.svg);
+    url(COPIED_IMAGES/About_Image1.jpg), url(COPIED_IMAGES/About_Image1.png),
+    url(COPIED_IMAGES/About_Image1.svg);
   background-position: center;
   background-size: cover;
   text-align: center;
@@ -455,6 +455,18 @@ h3 {
 }
 
 /* ------------------------------------- blog.html -------------------------------------- */
+.sub-header-blog {
+  height: 50vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(COPIED_IMAGES/Blog_Image1.jpg), url(COPIED_IMAGES/Blog_Image1.png),
+    url(COPIED_IMAGES/Blog_Image1.svg);
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}
+
 .blog-content {
   width: 80%;
   margin: auto;
@@ -545,3 +557,16 @@ h3 {
 }
 
 /* ------------------------------------- text edit -------------------------------------- */
+
+/* ------------------------------------- course.html -------------------------------------- */
+.sub-header-course {
+  height: 50vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
+    url(COPIED_IMAGES/Course_Image1.jpg), url(COPIED_IMAGES/Course_Image1.png),
+    url(COPIED_IMAGES/Course_Image1.svg);
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}

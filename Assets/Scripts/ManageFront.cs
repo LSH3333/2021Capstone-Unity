@@ -73,12 +73,13 @@ public class ManageFront : Manage
         index++;
     }
 
+    // AreYouSureBoxButtonManager.cs 에서 참조 
     public void DoBeforeMovingToNextScene()
     {
         // txt file 생성
-        gameObject.GetComponent<InputToText>().CreateTextFile();
+        gameObject.GetComponent<InputToText>().CreateTextFile("TextOutput");
         // html file 생성 
-        GameObject.Find("ManageScene").GetComponent<CreateNewHtml>().CreateEditedHtmlFile();
+        GameObject.Find("ManageScene").GetComponent<CreateNewHtml>().CreateEditedHtmlFile("index", "TextOutput");
 
         // move to next scene 
         SetFadeout("Front1-2");

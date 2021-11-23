@@ -32,16 +32,16 @@ public class CreateNewHtml : MonoBehaviour
 
     }
 
-    public void CreateEditedHtmlFile()
+    public void CreateEditedHtmlFile(string htmlFileName, string txtFileName)
     {
         // html file path 
-        readFromFilePath = Application.streamingAssetsPath + "/Read_Text/" + "index" + ".html";
+        readFromFilePath = Application.streamingAssetsPath + "/Read_Text/" + htmlFileName + ".html";
         // created text file path
-        createdTextPath = Application.streamingAssetsPath + "/Created_Text/" + "TextOutput" + ".txt";
+        createdTextPath = Application.streamingAssetsPath + "/Created_Text/" + txtFileName + ".txt";
 
         // 만들어질 html file path
         //writeFilePath = Application.streamingAssetsPath + "/Read_Text/" + "index2" + ".html";
-        writeFilePath = FindWebPath() + "/index" + ".html";
+        writeFilePath = FindWebPath() + "/" + htmlFileName + ".html";
         // 기존에 만들어진 html 파일이 있다면 제거해둠 
         File.Delete(writeFilePath);
 

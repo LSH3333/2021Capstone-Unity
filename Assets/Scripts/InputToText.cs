@@ -33,10 +33,10 @@ public class InputToText : MonoBehaviour
     }
 
     // 버튼 누르면 모든 input field들에 있는 text에 따라 텍스트파일 생성하도록 
-    public void CreateTextFile()
+    public void CreateTextFile(string txtFileName)
     {
         // 만들 txt file의 이름 
-        string txtDocumentName = Application.streamingAssetsPath + "/Created_Text/" + "TextOutput" + ".txt";
+        string txtDocumentName = Application.streamingAssetsPath + "/Created_Text/" + txtFileName + ".txt";
 
         // 시작 전 text 파일 초기화         
         File.WriteAllText(txtDocumentName, "");

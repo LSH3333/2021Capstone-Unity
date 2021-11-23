@@ -13,8 +13,10 @@ public class ChangeFileName : MonoBehaviour
     string[] path;
     // 절대경로 path에서 상대경로가 시작되는 지점 ("Assets/" 의 'A' 지점) 
     private int flagIdx;
-        
-    public bool OpenExplorer(int number)
+
+    // string name형식 : "Course_", "Blog_", "About_"
+    // index.html은 "" 공백으로 
+    public bool OpenExplorer(int number, string name)
     {
         // open explorer 
         //path = EditorUtility.OpenFilePanel("Overwrite with png", Application.dataPath + "/IMAGES", "png,jpg,jpeg");
@@ -28,7 +30,7 @@ public class ChangeFileName : MonoBehaviour
         // explorer창 닫았을시 return false 
         if (path[0] == "") return false;
 
-        string objName = "transparent" + Convert.ToString(number);
+        string objName = "transparent" + Convert.ToString(number);        
         StartCoroutine(RenderImg(path[0], objName));
         
         MakePathRelative();                
@@ -38,7 +40,7 @@ public class ChangeFileName : MonoBehaviour
         Debug.Log("RelativePath: " + relativePath);
 
         // 이름 변경
-        string changeTo = ReturnPathExceptFileName(relativePath) + "Image" + Convert.ToString(number) + ReturnFormat(path[0]);
+        string changeTo = ReturnPathExceptFileName(relativePath) + name + "Image" + Convert.ToString(number) + ReturnFormat(path[0]);
         //AssetDatabase.RenameAsset(relativePath, changeTo);
 
         Debug.Log("chageTo: " + changeTo);
@@ -56,6 +58,11 @@ public class ChangeFileName : MonoBehaviour
             yield return null;
         GameObject image = GameObject.Find(objName);
         image.GetComponent<RawImage>().texture = www.texture;
+
+        var img = image.GetComponent<RawImage>();
+        var tempColor = img.color;
+        tempColor.a = 255f;
+        img.color = tempColor;
     }
 
     public string ReturnPathExceptFileName(string path)
@@ -113,7 +120,7 @@ public class ChangeFileName : MonoBehaviour
     {
         // IMAGES folder path 
         string imgPath;
-        imgPath = Application.dataPath;
+        //imgPath = Application.dataPath;
         imgPath = Directory.GetCurrentDirectory() + "/Assets/IMAGES";
 
         // web folder path 

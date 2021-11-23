@@ -77,7 +77,7 @@ public class ManageFront1_2 : Manage
         if (objs.Count != 0) DestroySpawnedObj();
 
         // explorer를 닫았을시, 다시 해당 이미지가 블링크하도록 
-        if(_changeFileName.OpenExplorer(number++) == false)
+        if(_changeFileName.OpenExplorer(number++, "") == false)
         {
             number--;
             return;
@@ -153,6 +153,7 @@ public class ManageFront1_2 : Manage
 
             case 2:
                 obj = InstantiateUI("MoveImgVideo", "Canvas", false);
+                obj.transform.localScale = new Vector3(1f, 1f, 1f);
                 objs.Add(obj);
                 break;
 
@@ -204,6 +205,5 @@ public class ManageFront1_2 : Manage
         }
         index++;
     }
-
 
 }
