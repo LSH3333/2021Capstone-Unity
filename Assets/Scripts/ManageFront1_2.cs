@@ -187,7 +187,7 @@ public class ManageFront1_2 : Manage
                     "Now click other pages to create other pages"); objs.Add(obj);
                 obj = CreateOnCanvas("UpArrow", new Vector2(340f, 295f)); objs.Add(obj);
                 obj = CreateOnCanvas("UpArrow", new Vector2(431.5f, 291f)); objs.Add(obj);
-                obj = CreateOnCanvas("UpArrow", new Vector2(515f, 291f)); objs.Add(obj);                
+                obj = CreateOnCanvas("UpArrow", new Vector2(515f, 291f)); objs.Add(obj);                    
                 break;
 
 

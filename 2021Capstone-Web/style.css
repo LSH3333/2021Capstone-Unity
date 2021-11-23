@@ -407,7 +407,8 @@ h3 {
   height: 50vh;
   width: 100%;
   background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)),
-    url(images/background.jpg);
+    url(COPIED_IMAGES/SUBHEADER.jpg), url(COPIED_IMAGES/SUBHEADER.png),
+    url(COPIED_IMAGES/SUBHEADER.svg);
   background-position: center;
   background-size: cover;
   text-align: center;

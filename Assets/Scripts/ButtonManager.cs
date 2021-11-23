@@ -29,4 +29,6 @@ public class ButtonManager : MonoBehaviour
         ((RectTransform)gameObject.transform.GetChild(0).transform).sizeDelta = new Vector2(250f, 100f);
         gameObject.transform.GetChild(1).GetComponent<Text>().fontSize = 40;
     }
+
+   
 }
