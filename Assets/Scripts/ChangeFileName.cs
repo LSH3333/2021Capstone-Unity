@@ -70,7 +70,8 @@ public class ChangeFileName : MonoBehaviour
         int idx = 0;
         for(int i = path.Length-1; i >= 0; i--)
         {
-            if (path[i] == '/') break;
+            if ((path[i] == '/') || (path[i] == '\\')) break; 
+
             idx++;
         }
         return path.Substring(0, path.Length - idx);
