@@ -52,5 +52,4 @@ public class BlogPageManager : Manage
         SetFadeout(nextSceneName);
     }
 
-
 }
