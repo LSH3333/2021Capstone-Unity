@@ -194,7 +194,7 @@ public class ManageFront1_2 : Manage
 
             case 16:
                 // to next scene ... 
-                SetFadeout("fin");
+                //SetFadeout("fin");
                 break;
 
             // 버튼 비활성 이후에는 이미지 클릭으로 진행 

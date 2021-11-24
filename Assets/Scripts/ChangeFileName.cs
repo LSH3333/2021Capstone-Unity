@@ -29,7 +29,7 @@ public class ChangeFileName : MonoBehaviour
         Debug.Log("path!! : " + path[0]);
         // explorer창 닫았을시 return false 
         if (path[0] == "") return false;
-
+       
         string objName = "transparent" + Convert.ToString(number);        
         StartCoroutine(RenderImg(path[0], objName));
         
@@ -46,11 +46,27 @@ public class ChangeFileName : MonoBehaviour
         Debug.Log("chageTo: " + changeTo);
         if (!File.Exists(changeTo))
             File.Move(relativePath, changeTo);
+        else // 이미 선택한적 있는 이미지칸 이라면 
+        {
+            // 기존 이미지명을 unselected로 변경
+            int u_num = 1;
+            string unselectedName = ReturnPathExceptFileName(relativePath) + "unselected" + Convert.ToString(u_num) + ReturnFormat(path[0]);
+            // unselected1, unselected2 ... 해당 하는 이름의 파일 없을때까지 숫자 증가 
+            while (File.Exists(unselectedName))
+            {
+                Debug.Log(u_num);
+                u_num++;
+                unselectedName = ReturnPathExceptFileName(relativePath) + "unselected" + Convert.ToString(u_num) + ReturnFormat(path[0]);
+            }            
+            File.Move(changeTo, unselectedName);
+            File.Move(relativePath, changeTo);
+        }
 
         return true;
     }
     
     // 유저가 선택한 이미지 캔버스에 렌더링 
+    // path: 이미지 경로, objName: 랜더링할 raw image가 있는 오브젝트 이름 
     IEnumerator RenderImg(string path, string objName)
     {
         WWW www = new WWW(path);
@@ -59,6 +75,7 @@ public class ChangeFileName : MonoBehaviour
         GameObject image = GameObject.Find(objName);
         image.GetComponent<RawImage>().texture = www.texture;
 
+        // alpha값이 0 (투명)이라면 올려서 보이도록함 
         var img = image.GetComponent<RawImage>();
         var tempColor = img.color;
         tempColor.a = 255f;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Management;
 
 public class BlogPageManager : Manage
@@ -28,6 +29,14 @@ public class BlogPageManager : Manage
     {
         nextSceneName = _nextSceneName;
         obj = CreateOnCanvas("AreYouSureBox", Vector2.zero);
+    }
+
+    public void OnClickNextBtn()
+    {
+        obj = CreateOnCanvas("AreYouSureBox", Vector2.zero);
+        // "AreYouSureBox" 팝업시 NextBtn은 클릭 못하도록 
+        GameObject.Find("NextBtn").GetComponent<Button>().interactable = false;
+        nextSceneName = "fin";
     }
 
     // AreYouSureBoxButtonManager.cs 에서 참조 
