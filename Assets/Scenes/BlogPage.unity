@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,7 +346,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 12
+  m_Text: 6
 --- !u!222 &100708539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 219579818}
   - component: {fileID: 219579817}
   m_Layer: 5
-  m_Name: InputField12
+  m_Name: InputField6
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 280096658}
   - component: {fileID: 280096657}
   m_Layer: 5
-  m_Name: InputField8
+  m_Name: InputField2
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1419,7 +1419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 11
+  m_Text: 5
 --- !u!222 &489972005
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 6
+  m_Text: 11
 --- !u!222 &573546825
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1727,7 +1727,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 7
 --- !u!222 &672415703
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1749,7 +1749,7 @@ GameObject:
   - component: {fileID: 688679338}
   - component: {fileID: 688679337}
   m_Layer: 5
-  m_Name: InputField4
+  m_Name: InputField9
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1890,7 +1890,7 @@ GameObject:
   - component: {fileID: 689407818}
   - component: {fileID: 689407817}
   m_Layer: 5
-  m_Name: InputField11
+  m_Name: InputField5
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2450,7 +2450,7 @@ GameObject:
   - component: {fileID: 851211652}
   - component: {fileID: 851211651}
   m_Layer: 5
-  m_Name: InputField6
+  m_Name: InputField11
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2725,7 +2725,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 10
 --- !u!222 &912377448
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3086,7 +3086,7 @@ GameObject:
   - component: {fileID: 1019907352}
   - component: {fileID: 1019907351}
   m_Layer: 5
-  m_Name: InputField5
+  m_Name: InputField10
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3439,7 +3439,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 4
 --- !u!222 &1109639260
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3658,7 +3658,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4
+  m_Text: 9
 --- !u!222 &1144094376
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3746,7 +3746,7 @@ GameObject:
   - component: {fileID: 1286376556}
   - component: {fileID: 1286376555}
   m_Layer: 5
-  m_Name: InputField7
+  m_Name: InputField12
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4477,7 +4477,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 9
+  m_Text: 3
 --- !u!222 &1403150461
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4716,7 +4716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 8
+  m_Text: 2
 --- !u!222 &1481859112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4738,7 +4738,7 @@ GameObject:
   - component: {fileID: 1488269054}
   - component: {fileID: 1488269053}
   m_Layer: 5
-  m_Name: InputField2
+  m_Name: InputField7
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4978,7 +4978,7 @@ GameObject:
   - component: {fileID: 1660153031}
   - component: {fileID: 1660153030}
   m_Layer: 5
-  m_Name: InputField9
+  m_Name: InputField3
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5119,7 +5119,7 @@ GameObject:
   - component: {fileID: 1717332054}
   - component: {fileID: 1717332053}
   m_Layer: 5
-  m_Name: InputField10
+  m_Name: InputField4
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5394,7 +5394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 8
 --- !u!222 &1730052566
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5578,7 +5578,7 @@ GameObject:
   - component: {fileID: 1951115656}
   - component: {fileID: 1951115655}
   m_Layer: 5
-  m_Name: InputField3
+  m_Name: InputField8
   m_TagString: InputField
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6087,7 +6087,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 7
+  m_Text: 12
 --- !u!222 &2042982895
 CanvasRenderer:
   m_ObjectHideFlags: 0
